@@ -77,57 +77,6 @@ public class JsonKelimeRepositoryDal implements IKelimeDal{
 	}
 	
 
-	public List<Kelime> findAll2() {
-		// TODO Auto-generated method stub
-		//return null;
-		List<Kelime> kelimes = new ArrayList<Kelime>();
-		Kelime kel = new Kelime("a","b","c","d","5");
-		
-		JSONParser jsonparser = new JSONParser();
-		try {
-			FileReader reader = new FileReader(".\\jsonFiles\\JsonKelimeler.json");
-			
-			Object obj = jsonparser.parse(reader);
-			JSONArray keljsonobjArr = (JSONArray)obj;
-
-//			JSONObject kelJsonObj = (JSONObject)obj;
-//			kelimes.get(0).setGer((String)kelJsonObj.get("ger"));
-			kelimes.add(0,kel);
-			
-			JSONObject benJ = (JSONObject) keljsonobjArr.get(0);
-			Kelime kel2 = new Kelime((String) benJ.get("ger"),"b","c","d","5");
-			kelimes.add(1,kel2);
-			
-			Iterator<JSONObject> iterator = keljsonobjArr.iterator(); //JSONArray, JSONObject te döndü array element olarak
-			
-			while(iterator.hasNext()) {
-				
-				
-				kel2 = new Kelime( iterator.next().get("ger").toString(),"b","c","d","7");
-				kelimes.add(2,kel2);
-//				kelimes.add(3,(Kelime) iterator.next());
-				
-			}
-			
-			
-			
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		
-		
-		return kelimes;
-	}
 
 	@Override
 	public Kelime getById(int id) {
