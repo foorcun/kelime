@@ -1,22 +1,22 @@
 [
     {
-        "kelime": {
+       
             "id": "1",
-            "ger": "ich",
-            "eng": "I",
-            "tr": "ben",
+            "ger": "das",
+            "eng": "that",
+            "tr": "",
             "açıklama": "",
             "bilme": "5"
-        }
+        
     },
     {
-        "kelime": {
+        
             "id": "2",
             "ger": "war",
             "eng": "",
             "tr": "",
             "açıklama": "",
             "bilme": ""
-        }
+        
     }
 ]
