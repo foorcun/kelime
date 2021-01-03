@@ -14,8 +14,10 @@ public interface IKelimeDal {
 
 	
 	List<Kelime> findAll() throws FileNotFoundException, IOException, ParseException;
-	Kelime getById(int id);
+//	Kelime getById(int id);
+	Kelime getById(String id) throws FileNotFoundException, IOException, ParseException;
 	void Add(Kelime kelime);
 	void Update(int id,Kelime kelime);
 	void Delete(int id);
+	
 }
