@@ -25,14 +25,14 @@ public class Kelime {
 	@Column(name = "acıklama")
 	private String acıklama;
 	@Column(name = "puna")
-	private int puan;
+	private String puan;
 	
 	
 	
 	public Kelime() {
 	}
 
-	public Kelime( String ger, String eng, String tr, String acıklama, int puan) {
+	public Kelime( String ger, String eng, String tr, String acıklama, String puan) {
 		this.ger = ger;
 		this.eng = eng;
 		this.tr = tr;
@@ -80,11 +80,11 @@ public class Kelime {
 		this.acıklama = acıklama;
 	}
 
-	public int getPuan() {
+	public String getPuan() {
 		return puan;
 	}
 
-	public void setPuan(int puan) {
+	public void setPuan(String puan) {
 		this.puan = puan;
 	}
 	

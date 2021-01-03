@@ -37,7 +37,8 @@ public class JsonKelimeRepositoryDal implements IKelimeDal{
 		List<Kelime> kelimes = new ArrayList<Kelime>();
 
 		//raw json
-		FileReader reader = new FileReader(".\\jsonFiles\\JsonKelimeler.json");
+		//FileReader reader = new FileReader(".\\jsonFiles\\JsonKelimeler.json");
+		FileReader reader = new FileReader(".\\jsonFiles\\kelimelerim.json");
 		//json array
 		JSONParser jsonparser = new JSONParser();
 		Object obj = jsonparser.parse(reader);
@@ -53,10 +54,19 @@ public class JsonKelimeRepositoryDal implements IKelimeDal{
 		//data get id,.....
 		String id = (String) jsonKelime.get("id");
 		String ger = (String) jsonKelime.get("ger");
+		String eng = (String) jsonKelime.get("eng");
+		String tr = (String) jsonKelime.get("tr");
+		String acıklama = (String) jsonKelime.get("acıklama");
+		String puan = (String) jsonKelime.get("puan");
 		
 		//data set id,....
 		kelime.setId(id);
 		kelime.setGer(ger);
+		kelime.setEng(eng);
+		kelime.setTr(tr);
+		kelime.setAcıklama(acıklama);
+		kelime.setPuan(puan);
+		
 		
 		
 		//kelime listesine add
@@ -71,7 +81,7 @@ public class JsonKelimeRepositoryDal implements IKelimeDal{
 		// TODO Auto-generated method stub
 		//return null;
 		List<Kelime> kelimes = new ArrayList<Kelime>();
-		Kelime kel = new Kelime("a","b","c","d",5);
+		Kelime kel = new Kelime("a","b","c","d","5");
 		
 		JSONParser jsonparser = new JSONParser();
 		try {
@@ -85,7 +95,7 @@ public class JsonKelimeRepositoryDal implements IKelimeDal{
 			kelimes.add(0,kel);
 			
 			JSONObject benJ = (JSONObject) keljsonobjArr.get(0);
-			Kelime kel2 = new Kelime((String) benJ.get("ger"),"b","c","d",5);
+			Kelime kel2 = new Kelime((String) benJ.get("ger"),"b","c","d","5");
 			kelimes.add(1,kel2);
 			
 			Iterator<JSONObject> iterator = keljsonobjArr.iterator(); //JSONArray, JSONObject te döndü array element olarak
@@ -93,7 +103,7 @@ public class JsonKelimeRepositoryDal implements IKelimeDal{
 			while(iterator.hasNext()) {
 				
 				
-				kel2 = new Kelime( iterator.next().get("ger").toString(),"b","c","d",7);
+				kel2 = new Kelime( iterator.next().get("ger").toString(),"b","c","d","7");
 				kelimes.add(2,kel2);
 //				kelimes.add(3,(Kelime) iterator.next());
 				
