@@ -17,13 +17,13 @@ public class KelimeApplication implements CommandLineRunner {
 		
 	}
 
-	@Autowired
-	private KelimeRepository kelimeRepository;
+//	@Autowired
+//	private KelimeRepository kelimeRepository;
 	
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		this.kelimeRepository.save(new Kelime("ich","I","ben","",5));
+		//this.kelimeRepository.save(new Kelime("ich","I","ben","","5"));
 		
 	}
 
