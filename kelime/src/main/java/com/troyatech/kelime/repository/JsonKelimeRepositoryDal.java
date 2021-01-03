@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.json.simple.JSONArray;
@@ -79,9 +78,46 @@ public class JsonKelimeRepositoryDal implements IKelimeDal{
 
 
 	@Override
-	public Kelime getById(int id) {
+	public Kelime getById(String id) throws IOException, ParseException {
 		// TODO Auto-generated method stub
-		return null;
+		
+		// kelime list
+		List<Kelime> kelimes = new ArrayList<Kelime>();
+		
+		//raw json
+		//FileReader reader = new FileReader(".\\jsonFiles\\JsonKelimeler.json");
+		FileReader reader = new FileReader(".\\jsonFiles\\kelimelerim.json");
+		
+		//json array
+		JSONParser jsonparser = new JSONParser();
+		Object obj = jsonparser.parse(reader);
+		JSONArray keljsonobjArr = (JSONArray)obj;
+		
+		//jsonObject
+		JSONObject jsonKelime =  (JSONObject) keljsonobjArr.get(Integer.parseInt(id)-1);
+		// klasımız
+		Kelime kelime = new Kelime();
+		
+		//data get id,.....
+				String idK = (String) jsonKelime.get("id");
+				String ger = (String) jsonKelime.get("ger");
+				String eng = (String) jsonKelime.get("eng");
+				String tr = (String) jsonKelime.get("tr");
+				String acıklama = (String) jsonKelime.get("acıklama");
+				String puan = (String) jsonKelime.get("puan");
+				
+				//data set idK,....
+				kelime.setId(idK);
+				kelime.setGer(ger);
+				kelime.setEng(eng);
+				kelime.setTr(tr);
+				kelime.setAcıklama(acıklama);
+				kelime.setPuan(puan);
+				
+//		Kelime k = new Kelime("2","a","b","c","d","4");
+//		Kelime k = new Kelime("2","a","b","c","d");
+		return kelime;
+//		return null;
 	}
 
 	@Override

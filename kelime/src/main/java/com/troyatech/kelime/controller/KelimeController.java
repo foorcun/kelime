@@ -7,6 +7,7 @@ import java.util.List;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,6 +28,12 @@ public class KelimeController {
 		
 		//return this.kelimeRepository.findAll();
 		return this.JsonKelimeRepository.findAll();
+	}
+	
+	@GetMapping("/kelimes/{id}")
+	public Kelime getById(@PathVariable String id) throws FileNotFoundException, IOException, ParseException {
+		
+		return this.JsonKelimeRepository.getById(id);
 	}
 
 }
