@@ -1,4 +1,4 @@
-package com.troyatech.kelime.repository;
+package com.troyatech.kelime.DataAccess;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,15 +9,11 @@ import org.json.simple.parser.ParseException;
 import com.troyatech.kelime.model.Kelime;
 
 
-
 public interface IKelimeDal {
 
-	
-	List<Kelime> findAll() throws FileNotFoundException, IOException, ParseException;
-//	Kelime getById(int id);
+	List<Kelime> getAll() throws FileNotFoundException, IOException, ParseException;
 	Kelime getById(String id) throws FileNotFoundException, IOException, ParseException;
-	void Add(Kelime kelime);
-	void Update(int id,Kelime kelime);
-	void Delete(int id);
-	
+	void add(Kelime kelime);
+	void update(Kelime kelime);
+	void delete (Kelime kelime);
 }
