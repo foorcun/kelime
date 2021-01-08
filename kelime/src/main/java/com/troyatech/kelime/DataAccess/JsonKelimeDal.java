@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import com.troyatech.kelime.model.Kelime;
 
-@Repository
+//@Repository
 public class JsonKelimeDal implements IKelimeDal {
 	
 	
