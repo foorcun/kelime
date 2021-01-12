@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.troyatech.kelime.Business.IKelimeService;
 import com.troyatech.kelime.DataAccess.IKelimeDal;
+import com.troyatech.kelime.converter.ConverterFromJson;
 import com.troyatech.kelime.model.Kelime;
 
 @RestController
@@ -23,25 +25,33 @@ public class KelimeController {
 //	IKelimeRepo jsonKelimeRepo = new JsonKelimeRepository();
 	
 	
-	@Autowired
+	
 	//private KelimeRepository kelimeRepository;
 //	private IKelimeRepo JsonKelimeRepository;
-	private IKelimeDal kelimeDal;
+//	@Autowired
+//	private IKelimeDal kelimeDal;
+	
+	private IKelimeService kelimeManager;
 	
 	
 	@GetMapping("kelimes")
 	public List<Kelime> getKelimes() throws FileNotFoundException, IOException, ParseException{
+	/////convert başlangıç
+			ConverterFromJson conv = new ConverterFromJson(kelimeManager);
+			conv.convertToHedef();
+			////convert bitiş
+			
 		
 		
 		//return this.kelimeRepository.findAll();
 //		return this.kelimeDal.findAll();
-		return this.kelimeDal.getAll();
+		return this.kelimeManager.getAll();
 	}
 	
 	@GetMapping("/kelimes/{id}")
 	public Kelime getById(@PathVariable String id) throws FileNotFoundException, IOException, ParseException {
 		
-		return this.kelimeDal.getById(id);
+		return this.kelimeManager.getById(id);
 //		return null;
 	}
 

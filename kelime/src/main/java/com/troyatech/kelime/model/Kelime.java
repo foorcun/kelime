@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "users")
+@Table(name = "tbl_kelime")
 public class Kelime {
 
 	
@@ -22,9 +22,9 @@ public class Kelime {
 	private String eng;
 	@Column(name = "tr")
 	private String tr;
-	@Column(name = "acıklama")
+	@Column(name = "aciklama")
 	private String acıklama;
-	@Column(name = "puna")
+	@Column(name = "puan")
 	private String puan;
 	
 	
@@ -87,6 +87,14 @@ public class Kelime {
 	public void setPuan(String puan) {
 		this.puan = puan;
 	}
+
+	@Override
+	public String toString() {
+		return "Kelime [id=" + id + ", ger=" + ger + ", eng=" + eng + ", tr=" + tr + ", aciklama=" + acıklama
+				+ ", puan=" + puan + "]";
+	}
+	
+	
 	
 	
 	
