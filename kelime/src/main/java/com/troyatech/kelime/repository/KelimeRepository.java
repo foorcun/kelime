@@ -8,4 +8,10 @@ import com.troyatech.kelime.model.Kelime;
 @Repository
 public interface KelimeRepository extends JpaRepository<Kelime,Long> {
 
+	public Kelime findByGer(String ger);
+	
+	
+	public Kelime findById(String id);
+	
 }
+

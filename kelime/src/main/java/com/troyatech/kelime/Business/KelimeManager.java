@@ -31,27 +31,30 @@ public class KelimeManager implements IKelimeService {
 	}
 
 	@Override
-	public Kelime getById(String id) throws FileNotFoundException, IOException, ParseException {
+	public Kelime getById(long id) throws FileNotFoundException, IOException, ParseException {
 		// TODO Auto-generated method stub
+		
+		System.out.println("business");
+		
 		return this.kelimeDal.getById(id);
 	}
 
 	@Override
 	public void add(Kelime kelime) {
 		// TODO Auto-generated method stub
-		kelimeDal.add(kelime);
+		this.kelimeDal.add(kelime);
 	}
 
 	@Override
 	public void update(Kelime kelime) {
 		// TODO Auto-generated method stub
-		
+		this.kelimeDal.update(kelime);
 	}
 
 	@Override
 	public void delete(Kelime kelime) {
 		// TODO Auto-generated method stub
-		
+		this.kelimeDal.delete(kelime);
 	}
 
 }

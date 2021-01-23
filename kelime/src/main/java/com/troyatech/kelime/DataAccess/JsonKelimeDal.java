@@ -28,9 +28,9 @@ public class JsonKelimeDal implements IKelimeDal {
 //		this.jsonKelimeRepo = jsonKelimeRepo	;
 //	}
 	
-	@Autowired
-	public JsonKelimeDal( ) {
-	}
+//	@Autowired
+//	public JsonKelimeDal( ) {
+//	}
 	
 	
 	
@@ -60,7 +60,7 @@ public class JsonKelimeDal implements IKelimeDal {
 				// klasımız
 				Kelime kelime = new Kelime();		
 				//data get id,.....
-				String id = (String) jsonKelime.get("id");
+				long id = (long) jsonKelime.get("id");
 				String ger = (String) jsonKelime.get("ger");
 				String eng = (String) jsonKelime.get("eng");
 				String tr = (String) jsonKelime.get("tr");
@@ -87,7 +87,7 @@ public class JsonKelimeDal implements IKelimeDal {
 	
 	
 	@Override
-	public Kelime getById(String id) throws IOException, ParseException {
+	public Kelime getById(long id) throws IOException, ParseException {
 		// TODO Auto-generated method stub
 		
 		// kelime list
@@ -103,12 +103,13 @@ public class JsonKelimeDal implements IKelimeDal {
 		JSONArray keljsonobjArr = (JSONArray)obj;
 		
 		//jsonObject
-		JSONObject jsonKelime =  (JSONObject) keljsonobjArr.get(Integer.parseInt(id)-1);
+//		JSONObject jsonKelime =  (JSONObject) keljsonobjArr.get(Integer.parseInt(id)-1);
+		JSONObject jsonKelime =  (JSONObject) keljsonobjArr.get((int) (id-1));
 		// klasımız
 		Kelime kelime = new Kelime();
 		
 		//data get id,.....
-				String idK = (String) jsonKelime.get("id");
+				long idK = (long) jsonKelime.get("id");
 				String ger = (String) jsonKelime.get("ger");
 				String eng = (String) jsonKelime.get("eng");
 				String tr = (String) jsonKelime.get("tr");
