@@ -14,7 +14,7 @@ public class Kelime {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String id;
+	private long id;
 	
 	@Column(name = "ger")
 	private String ger;
@@ -39,12 +39,26 @@ public class Kelime {
 		this.acıklama = acıklama;
 		this.puan = puan;
 	}
+	
+	
+	
+	
+	
 
-	public String getId() {
+	public Kelime(long id, String ger, String eng, String tr, String acıklama, String puan) {
+		this.id = id;
+		this.ger = ger;
+		this.eng = eng;
+		this.tr = tr;
+		this.acıklama = acıklama;
+		this.puan = puan;
+	}
+
+	public long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
